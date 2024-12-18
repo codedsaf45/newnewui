@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>음성 안내</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://ai-public.creatie.ai/gen_page/tailwind-custom.css" rel="stylesheet" />
+    <script
+        src="https://cdn.tailwindcss.com/3.4.5?plugins=forms@0.5.7,typography@0.5.13,aspect-ratio@0.4.2,container-queries@0.1.1"></script>
+    <script src="https://ai-public.creatie.ai/gen_page/tailwind-config.min.js" data-color="#000000"
+        data-border-radius="small"></script>
+</head>
+
+<body class="bg-gray-50 font-sans">
+    <div class="max-w-8xl mx-auto min-h-screen flex flex-col">
+        <header class="sticky top-0 z-50 bg-white border-b border-gray-200">
+            <div class="px-4 py-4 flex items-center">
+                <button class="p-2 hover:bg-gray-100 rounded-full" onclick="goBack()">
+                    <i class="fas fa-arrow-left text-gray-600"></i>
+                </button>
+                <h1 class="ml-4 text-lg font-medium">음성 안내</h1>
+            </div>
+        </header>
+        <main class="flex-1 p-4 overflow-y-auto">
+            <div class="flex items-center justify-center mb-4">
+                <div class="text-center">
+                    <div
+                        class="w-16 h-16 bg-custom rounded-full flex items-center justify-center mx-auto mb-2 animate-pulse">
+                        <i class="fas fa-microphone text-white text-2xl animate-bounce"></i>
+                    </div>
+                    <p class="text-gray-600">버디버디가 듣고있어요...</p>
+                    <p class="text-lg text-gray-700 mb-4 mt-6">다음과 같이 말씀해 보세요:</p>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="bg-white border border-gray-200 rounded-lg p-3 hover:shadow-md transition-shadow">
+                            <p class="text-gray-600">&#39;응급실로 가는 길 알려주세요&#39;</p>
+                        </div>
+                        <div class="bg-white border border-gray-200 rounded-lg p-3 hover:shadow-md transition-shadow">
+                            <p class="text-gray-600">&#39;수납처는 어디인가요?&#39;</p>
+                        </div>
+                        <div class="bg-white border border-gray-200 rounded-lg p-3 hover:shadow-md transition-shadow">
+                            <p class="text-gray-600">&#39;편의점 위치 알려주세요&#39;</p>
+                        </div>
+                        <div class="bg-white border border-gray-200 rounded-lg p-3 hover:shadow-md transition-shadow">
+                            <p class="text-gray-600">&#39;화장실이 어디에 있나요?&#39;</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <section class="msger">
+                <header class="msger-header">
+                    <div class="msger-header-title"></div>
+                    <div class="msger-header-options"></div>
+                </header>
+                <div class="space-y-4">
+                    <!-- 사용자 메시지 -->
+                    <div class="flex justify-end">
+                        <div class="bg-custom text-white rounded-lg px-4 py-2 max-w-[80%] msger-chat">
+                            <p>버디버디에게 필요한 것을 물어보세요</p>
+                        </div>
+                    </div>
+                    <!-- 봇 메시지 -->
+                    <div class="flex justify-start">
+                        <div
+                            class="bg-white border border-gray-200 rounded-lg px-4 py-2 max-w-[80%] shadow-sm msger-chat">
+                            <p class="mb-4" id="response">버디버디</p>
+                            <div class="bg-gray-50 rounded-lg p-3">
+                                <div class="flex items-center mb-2">
+                                </div>
+                                <p class="text-sm text-gray-600 mb-1"></p>
+                                <!-- <button
+                                    class="w-full bg-custom text-white py-2 rounded !rounded-button hover:bg-custom/90"
+                                    onclick="openMap()">
+                                    길 안내
+                                </button> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        function openMap() {
+            window.location.href = "location.html";
+        }
+        function openVoice() {
+            window.location.href = "voice.html";
+        }
+        function opencamera() {
+            window.location.href = "camera.html";
+        }
+        function openHospital() {
+            window.location.href = "hospital.html";
+        }
+        function goBack() {
+            window.history.back(); // 브라우저의 이전 페이지로 이동
+        }
+        const back = document.querySelector('.back');
+    </script>
+    <script>
+
+        let fetchInterval = null;
+
+        async function getGptOutput() {
+            try {
+                const response = await fetch('http://127.0.0.1:8000/gptOutput', { method: 'POST' });
+                const data = await response.json();
+                console.log("GPT Response:", data.response);
+                document.getElementById('response').innerText = `GPT 응답: ${data.response}`;
+            } catch (error) {
+                console.error("Error fetching GPT output:", error);
+            }
+        }
+
+        async function getUserInput() {
+            try {
+                const response = await fetch('http://127.0.0.1:8000/UserInput', { method: 'POST' });
+                const data = await response.json();
+                console.log("User Message:", data.usermessage);
+                // document.getElementById('response').innerText = `사용자 입력: ${data.response}`;
+            } catch (error) {
+                console.error("Error fetching user input:", error);
+            }
+        }
+
+        // 응답 시작
+        function startFetching() {
+            if (!fetchInterval) {
+                console.log("Fetching started...");
+                fetchInterval = setInterval(async () => {
+                    await getUserInput();
+                    await getGptOutput();
+                }, 3000); // 3초마다 반복
+            }
+        }
+
+        // 응답 중지
+        function stopFetching() {
+            if (fetchInterval) {
+                clearInterval(fetchInterval);
+                fetchInterval = null;
+                console.log("Fetching stopped.");
+            }
+        }
+        window.onload = function () {
+            startFetching();
+        };
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html><html lang="ko"><head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>스마트 병원 안내 시스템</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+    <link href="https://ai-public.creatie.ai/gen_page/tailwind-custom.css" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com/3.4.5?plugins=forms@0.5.7,typography@0.5.13,aspect-ratio@0.4.2,container-queries@0.1.1"></script>
+    <script src="https://ai-public.creatie.ai/gen_page/tailwind-config.min.js" data-color="#000000" data-border-radius="small"></script>
+</head>
+<body class="bg-gray-50 font-[Noto Sans KR]">
+    <div class="w-[1280px] h-[100vh] mx-auto bg-white shadow-lg overflow-hidden">
+        <header class="h-[160px] border-b border-gray-200">
+            <div class="container mx-auto px-8 h-full flex items-center justify-between">
+                <div class="flex items-center gap-12">
+                    <!-- <img src="https://ai-public.creatie.ai/gen_page/logo_placeholder.png" alt="병원 로고" class="h-12"/> -->
+                    <nav class="flex gap-8">
+                        <a href="#" class="text-lg font-medium hover:text-custom">진료안내</a>
+                        <a href="#" class="text-lg font-medium hover:text-custom">의료진</a>
+                        <a href="#" class="text-lg font-medium hover:text-custom">병원소개</a>
+                        <a href="#" class="text-lg font-medium hover:text-custom">고객서비스</a>
+                    </nav>
+                </div>
+                
+            </div>
+        </header>
+        <section class="h-[calc(100vh-520px)] relative bg-gradient-to-b from-blue-50 to-white">
+            <div class="container mx-auto px-8 h-full flex items-center">
+                <div class="w-1/2">
+                    <div class="bg-white p-8 rounded-xl shadow-lg inline-block relative mb-8">
+                        <p class="text-xl">버디버디에게 안내 또는 버디버디라고 말해 보세요. <br>AI 음성 안내 서비스가 도와드립니다!</p>
+                        <div class="absolute -bottom-4 left-8 w-4 h-4 bg-white transform rotate-45"></div>
+                    </div>
+                    <h1 class="text-5xl font-bold mb-6 leading-tight">스마트 의료 안내 로봇,<br/>당신의 건강 도우미</h1>
+                    <p class="text-gray-600 text-xl leading-relaxed">24시간 365일 언제나 필요한 의료 정보를 안내해드립니다.</p>
+                </div>
+                <div class="w-1/2 flex justify-center">
+                    <img src="mainturtle.jpg" alt="안내 거북이" class="h-[500px] object-contain"/>                </div>
+            </div>
+        </section>
+        <section class="bg-white py-8">
+            <div class="container mx-auto px-8">
+                <h2 class="text-4xl font-bold text-center mb-8">로봇 안내 서비스</h2>
+                <div class="grid grid-cols-4 gap-6">
+                    
+                    <button class="!rounded-button flex flex-col items-center p-8 border border-gray-200 hover:border-custom hover:shadow-lg transition" onclick="openHospital()">
+                        <i class="fas fa-user-md text-6xl text-custom mb-6"></i>
+                        <h3 class="text-2xl font-medium mb-4">의료진 소개</h3>
+                        <p class="text-gray-600 text-center">의료진 정보와 진료 일정을 확인하세요</p>
+                    </button>
+                    
+                    <button class="!rounded-button flex flex-col items-center p-8 border border-gray-200 hover:border-custom hover:shadow-lg transition" onclick="openMap()">
+                        <i class="fas fa-map-marker-alt text-6xl text-custom mb-6"></i>
+                        <h3 class="text-2xl font-medium mb-4">병원 위치</h3>
+                        <p class="text-gray-600 text-center">실시간 길 안내와 내비게이션을 제공합니다</p>
+                    </button>
+                    <button class="!rounded-button flex flex-col items-center p-8 border border-gray-200 hover:border-custom hover:shadow-lg transition" onclick="openVoice()">
+                        <i class="fas fa-microphone text-6xl text-custom mb-6"></i>
+                        <h3 class="text-2xl font-medium mb-4">음성 안내</h3>
+                        <p class="text-gray-600 text-center">AI 음성 안내 서비스를 이용하실 수 있습니다</p>
+                    </button>
+                    
+                <button class="!rounded-button flex flex-col items-center p-8 border border-gray-200 hover:border-custom hover:shadow-lg transition" onclick="opencamera()">
+                    <i class="fas fa-camera text-6xl text-custom mb-6"></i>
+                    <h3 class="text-2xl font-medium mb-4">사진찍기</h3>
+                    <p class="text-gray-600 text-center">AI 로봇과 함께 기념사진을 찍어보세요</p>
+                </button></div>
+            </div>
+        </section>
+        
+        <section class="h-[380px] bg-custom text-white py-20 mt-12">
+            <div class="container mx-auto px-8">
+                <h2 class="text-4xl font-bold text-center mb-16">24시간 안내 서비스</h2>
+                <div class="grid grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <i class="fas fa-phone-alt text-5xl mb-4"></i>
+                        <h3 class="text-xl font-medium mb-2">대표전화</h3>
+                        <p class="text-2xl font-bold">1588-0000</p>
+                        <p class="mt-2 text-white/80">평일 09:00 - 18:00</p>
+                    </div>
+                    <div class="text-center">
+                        <i class="fas fa-ambulance text-5xl mb-4"></i>
+                        <h3 class="text-xl font-medium mb-2">응급실</h3>
+                        <p class="text-2xl font-bold">1588-1111</p>
+                        <p class="mt-2 text-white/80">24시간 운영</p>
+                    </div>
+                    <div class="text-center">
+                        <i class="fas fa-comments text-5xl mb-4"></i>
+                        <h3 class="text-xl font-medium mb-2">AI 음성 상담</h3>
+                        <button class="!rounded-button bg-white text-custom px-8 py-3 text-lg font-medium mt-4 hover:bg-gray-100 transition" onclick="openVoice()">음성 상담 시작</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+<script>
+function openMap() {
+    window.location.href = "location.html";
+}
+function openVoice() {
+    window.location.href = "voice.html";
+}
+function opencamera() {
+    window.location.href = "camera.html";
+}
+function openHospital() {
+    window.location.href = "hospital.html";
+}
+function goBack() {
+    window.history.back(); // 브라우저의 이전 페이지로 이동
+}
+const back = document.querySelector('.back');
+</script>
+
+</body>
+</html>

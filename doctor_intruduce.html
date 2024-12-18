@@ -1,0 +1,62 @@
+<!DOCTYPE html><html lang="ko"><head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>진료과 안내</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+    <link href="https://ai-public.creatie.ai/gen_page/tailwind-custom.css" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com/3.4.5?plugins=forms@0.5.7,typography@0.5.13,aspect-ratio@0.4.2,container-queries@0.1.1"></script>
+    <script src="https://ai-public.creatie.ai/gen_page/tailwind-config.min.js" data-color="#000000" data-border-radius="small"></script>
+</head>
+<body class="bg-gray-50 font-[&#39;Noto_Sans_KR&#39;]">
+    <div class="max-w-8xl mx-auto min-h-screen flex flex-col">
+        <header class="bg-white shadow-sm">
+            <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-16">
+                    <div class="flex items-center">
+                        <button class="!rounded-button text-gray-500 hover:text-gray-700"onclick="goBack()">
+                            <i class="fas fa-arrow-left text-xl"></i>
+                        </button>
+                        <h1 class="ml-4 text-2xl font-bold text-gray-900">의료진 소개</h1>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class="flex-1 py-8">
+            <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="mb-6">
+                    <div class="relative">
+                        <input type="text" placeholder="의료진 검색" class="w-full pl-10 pr-4 py-4 border border-gray-300 rounded-lg focus:ring-custom focus:border-custom text-lg"/>
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i class="fas fa-search text-gray-400"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4"><div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow"><div class="flex items-center mb-4"><img src="https://via.placeholder.com/60" class="rounded-full" alt="의사 프로필"/><div class="ml-4"><h3 class="text-lg font-medium">김민수 교수</h3><p class="text-sm text-gray-500">심장내과 전문의</p></div></div><div class="text-sm text-gray-600 mb-3">전문분야: 심장질환, 고혈압</div><div class="text-sm text-gray-600 mb-3">진료시간: 월, 수, 금 오전</div><div class="flex justify-between items-center"><span class="text-sm text-custom font-medium">진료예약 가능</span><button class="!rounded-button bg-custom text-white py-2 px-4 hover:bg-custom/90">예약하기</button></div></div><div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow"><div class="flex items-center mb-4"><img src="https://via.placeholder.com/60" class="rounded-full" alt="의사 프로필"/><div class="ml-4"><h3 class="text-lg font-medium">이지원 교수</h3><p class="text-sm text-gray-500">신경과 전문의</p></div></div><div class="text-sm text-gray-600 mb-3">전문분야: 뇌졸중, 두통</div><div class="text-sm text-gray-600 mb-3">진료시간: 화, 목, 토 오전</div><div class="flex justify-between items-center"><span class="text-sm text-custom font-medium">진료예약 가능</span><button class="!rounded-button bg-custom text-white py-2 px-4 hover:bg-custom/90">예약하기</button></div></div><div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow"><div class="flex items-center mb-4"><img src="https://via.placeholder.com/60" class="rounded-full" alt="의사 프로필"/><div class="ml-4"><h3 class="text-lg font-medium">박성훈 교수</h3><p class="text-sm text-gray-500">정형외과 전문의</p></div></div><div class="text-sm text-gray-600 mb-3">전문분야: 척추, 관절</div><div class="text-sm text-gray-600 mb-3">진료시간: 월, 화, 목 오후</div><div class="flex justify-between items-center"><span class="text-sm text-gray-500">금일 진료종료</span><button class="!rounded-button bg-gray-100 text-gray-400 py-2 px-4 cursor-not-allowed">예약하기</button></div></div><div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow"><div class="flex items-center mb-4"><img src="https://via.placeholder.com/60" class="rounded-full" alt="의사 프로필"/><div class="ml-4"><h3 class="text-lg font-medium">최유진 교수</h3><p class="text-sm text-gray-500">소아과 전문의</p></div></div><div class="text-sm text-gray-600 mb-3">전문분야: 소아질환, 예방접종</div><div class="text-sm text-gray-600 mb-3">진료시간: 수, 금 종일</div><div class="flex justify-between items-center"><span class="text-sm text-custom font-medium">진료예약 가능</span><button class="!rounded-button bg-custom text-white py-2 px-4 hover:bg-custom/90">예약하기</button></div></div></div>
+            </div>
+        </main>
+        <nav class="bg-white shadow-lg fixed bottom-0 w-full">
+            <div class="max-w-8xl mx-auto px-4">
+                <div class="flex justify-around py-4">
+                    <button class="flex flex-col items-center text-gray-500 hover:text-custom">
+                        <i class="fas fa-home text-xl mb-1"></i>
+                        <span class="text-xs">홈</span>
+                    </button>
+                    <button class="flex flex-col items-center text-custom">
+                        <i class="fas fa-stethoscope text-xl mb-1"></i>
+                        <span class="text-xs">진료과</span>
+                    </button>
+                    <button class="flex flex-col items-center text-gray-500 hover:text-custom">
+                        <i class="fas fa-hospital text-xl mb-1"></i>
+                        <span class="text-xs">병원안내</span>
+                    </button>
+                    <button class="flex flex-col items-center text-gray-500 hover:text-custom">
+                        <i class="fas fa-microphone text-xl mb-1"></i>
+                        <span class="text-xs">음성안내</span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </div>
+</body>
+<script type="text/javascript" src="page.js"></script>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>길 안내 시스템</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://cdn.plyr.io/3.7.8/plyr.css" rel="stylesheet" />
+    <link href="https://ai-public.creatie.ai/gen_page/tailwind-custom.css" rel="stylesheet" />
+    <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
+    <script
+        src="https://cdn.tailwindcss.com/3.4.5?plugins=forms@0.5.7,typography@0.5.13,aspect-ratio@0.4.2,container-queries@0.1.1"></script>
+    <script src="https://ai-public.creatie.ai/gen_page/tailwind-config.min.js" data-color="#000000"
+        data-border-radius="small"></script>
+</head>
+
+<body class="bg-gray-100 font-[&#39;Noto_Sans_KR&#39;]">
+    <div class="max-w-[2560px] mx-auto min-h-screen flex flex-col">
+        <main class="flex-grow">
+            <div class="bg-white shadow-lg rounded-lg m-6 max-w-[2560px]">
+                <div class="aspect-w-16 aspect-h-10">
+                    <video id="player" playsinline autoplay muted controls controls=""
+                        data-poster="https://creatie.ai/ai/api/search-image?query=A modern building interior with clean architecture and bright lighting, showing a spacious lobby area with minimalist design elements&amp;width=1280&amp;height=720&amp;orientation=landscape"
+                        style="width: 2560px; height: 1600px; max-width: 100%; object-fit: cover;">
+                        <source src="한양대학교병원 개원 50주년 기념 홍보영상.mp4" type="video/mp4" />
+                    </video>
+                </div>
+                <div class="p-8">
+                    <div class="text-center mb-12">
+                        <div class="text-4xl font-bold text-custom mb-4">현재 방향</div>
+                        <i class="fas fa-arrow-right text-8xl text-custom transform rotate-45"></i>
+                        <div class="mt-4 text-2xl text-gray-600">우측 방향으로 이동하세요</div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-8 mb-12">
+                        <div class="bg-gray-50 p-6 rounded-lg text-center">
+                            <div class="text-xl text-gray-600 mb-2">남은 거리</div>
+                            <div class="text-4xl font-bold text-custom">50m</div>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-lg text-center">
+                            <div class="text-xl text-gray-600 mb-2">현재 위치</div>
+                            <div class="text-4xl font-bold text-custom">수납처</div>
+                        </div>
+                    </div>
+                    <div class="relative pt-1">
+                        <div class="flex mb-2 items-center justify-between">
+                            <div class="text-lg font-semibold text-custom">진행률</div>
+                            <div class="text-lg font-semibold text-custom">0%</div>
+                        </div>
+                        <div class="overflow-hidden h-4 mb-4 text-xs flex rounded bg-gray-200">
+                            <div
+                                class="w-3/4 shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-custom">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const player = new Plyr('#player', {
+                autoplay: true,
+                muted: true,
+                loop: true,
+                controls: ['play', 'progress', 'mute', 'volume', 'fullscreen']
+            });
+
+            // HTML5 video element에 직접 autoplay와 muted 설정
+            const videoElement = document.querySelector('#player');
+            videoElement.autoplay = true;
+            videoElement.muted = true;
+        });
+    </script>

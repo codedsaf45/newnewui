@@ -1,0 +1,78 @@
+<!DOCTYPE html><html lang="ko"><head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>병원 안내 로봇</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+    <link href="https://ai-public.creatie.ai/gen_page/tailwind-custom.css" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com/3.4.5?plugins=forms@0.5.7,typography@0.5.13,aspect-ratio@0.4.2,container-queries@0.1.1"></script>
+    <script src="https://ai-public.creatie.ai/gen_page/tailwind-config.min.js" data-color="#000000" data-border-radius="small"></script>
+</head>
+<body class="bg-gray-50 min-h-screen font-[Noto Sans KR]">
+    <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+        <header class="py-6">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-4"><button class="text-gray-900 hover:text-gray-700"><i class="fas fa-arrow-left text-2xl"></i></button>
+                    
+                    
+                </div>
+                <div class="text-right">
+                    <p class="text-sm text-gray-600">현재 시각</p>
+                    <p class="text-lg font-medium" id="current-time">00:00</p>
+                </div>
+            </div>
+        </header>
+        <main class="py-8">
+            <div class="grid grid-cols-2 gap-6 max-w-4xl mx-auto">
+                <button class="bg-red-600 hover:bg-red-700 text-white p-8 rounded-lg flex flex-col items-center gap-4 transition-colors !rounded-button">
+                    <i class="fas fa-ambulance text-4xl"></i>
+                    <span class="text-xl font-medium">응급실</span>
+                </button>
+                
+                <button class="bg-custom hover:bg-blue-700 text-white p-8 rounded-lg flex flex-col items-center gap-4 transition-colors !rounded-button">
+                    <i class="fas fa-cash-register text-4xl"></i>
+                    <span class="text-xl font-medium">수납처</span>
+                </button>
+                
+                <button class="bg-custom hover:bg-blue-700 text-white p-8 rounded-lg flex flex-col items-center gap-4 transition-colors !rounded-button">
+                    <i class="fas fa-store text-4xl"></i>
+                    <span class="text-xl font-medium">편의점</span>
+                </button>
+                
+                <button class="bg-custom hover:bg-blue-700 text-white p-8 rounded-lg flex flex-col items-center gap-4 transition-colors !rounded-button">
+                    <i class="fas fa-restroom text-4xl"></i>
+                    <span class="text-xl font-medium">화장실</span>
+                </button>
+            </div>
+            <div class="mt-12 max-w-4xl mx-auto bg-white rounded-lg p-6 shadow-sm">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-4">
+                        <i class="fas fa-map-marker-alt text-custom text-xl"></i>
+                        <span class="text-lg">현재 위치: 1층 로비</span>
+                    </div>
+                    
+                </div>
+            </div>
+        </main>
+        <div id="notification" class="fixed bottom-8 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white px-6 py-3 rounded-full hidden">
+            <p class="text-center">선택하신 위치로 안내를 시작하겠습니다.</p>
+        </div>
+    </div>
+    <script>
+        function updateTime() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('ko-KR', { hour: '2-digit', minute: '2-digit' });
+            document.getElementById('current-time').textContent = timeString;
+        }
+        setInterval(updateTime, 1000);
+        updateTime();
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('click', () => {
+                const notification = document.getElementById('notification');
+                notification.classList.remove('hidden');
+                setTimeout(() => {
+                    notification.classList.add('hidden');
+                }, 3000);
+            });
+        });
+    </script>
